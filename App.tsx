@@ -20,12 +20,11 @@ import {
   Navigation,
   CreditCard,
   Headphones,
-  // Added missing Phone icon import
   Phone
 } from 'lucide-react';
-import { DESTINATIONS, REVIEWS, FAQS } from './constants/data';
-import { Destination, eSIMPlan } from './types';
-import { getTravelAdvice } from './services/geminiService';
+import { DESTINATIONS, REVIEWS, FAQS } from './constants/data.ts';
+import { Destination, eSIMPlan } from './types.ts';
+import { getTravelAdvice } from './services/geminiService.ts';
 
 // --- UI Components ---
 
@@ -492,7 +491,6 @@ export default function App() {
             ].map((item, i) => (
               <div key={i} className="group p-12 rounded-[48px] bg-white border border-slate-100 hover:border-blue-200 shadow-sm hover:shadow-2xl hover:shadow-blue-500/5 transition-all">
                 <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                  {/* Fixed cloneElement type error by casting to React.ReactElement<any> */}
                   {React.cloneElement(item.icon as React.ReactElement<any>, { size: 32 })}
                 </div>
                 <h3 className="text-2xl font-black text-slate-900 mb-4">{item.title}</h3>
@@ -571,7 +569,6 @@ export default function App() {
               <h4 className="text-lg font-black mb-8 uppercase tracking-widest text-blue-500">Liên hệ</h4>
               <div className="space-y-6">
                 <div className="flex items-center gap-4 text-slate-400">
-                  {/* Added missing Phone icon usage after importing it */}
                   <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center text-blue-500"><Phone size={18} /></div>
                   <span className="font-bold">0123.456.789</span>
                 </div>

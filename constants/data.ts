@@ -1,5 +1,5 @@
 
-import { Destination, Review, FAQItem } from '../types';
+import { Destination, Review, FAQItem } from '../types.ts';
 
 export const DESTINATIONS: Destination[] = [
   {
