@@ -28,7 +28,13 @@ import { getTravelAdvice } from './services/geminiService.ts';
 
 // --- UI Components ---
 
-const Badge = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => (
+// Fixed Badge component with proper TypeScript types to handle children and key correctly
+interface BadgeProps {
+  children?: React.ReactNode;
+  className?: string;
+}
+
+const Badge: React.FC<BadgeProps> = ({ children, className = "" }) => (
   <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${className}`}>
     {children}
   </span>
@@ -85,7 +91,12 @@ const Navbar = () => {
   );
 };
 
-const Hero = ({ onSearch }: { onSearch: (val: string) => void }) => {
+// Fixed Hero component with proper TypeScript types
+interface HeroProps {
+  onSearch: (val: string) => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ onSearch }) => {
   return (
     <section className="relative min-h-[95vh] flex items-center pt-24 overflow-hidden hero-pattern">
       <div className="absolute inset-0 bg-[#0f172a] -z-20"></div>
@@ -139,7 +150,13 @@ const Hero = ({ onSearch }: { onSearch: (val: string) => void }) => {
   );
 };
 
-const DestinationCard = ({ destination, onClick }: { destination: Destination, onClick: (d: Destination) => void }) => {
+// Fixed DestinationCard component with proper TypeScript types
+interface DestinationCardProps {
+  destination: Destination;
+  onClick: (d: Destination) => void;
+}
+
+const DestinationCard: React.FC<DestinationCardProps> = ({ destination, onClick }) => {
   return (
     <div 
       className="group bg-white rounded-[32px] overflow-hidden border border-slate-100 hover:border-blue-200 transition-all cursor-pointer p-4 plan-card-premium"
@@ -179,7 +196,13 @@ const DestinationCard = ({ destination, onClick }: { destination: Destination, o
   );
 };
 
-const PlanModal = ({ destination, onClose }: { destination: Destination, onClose: () => void }) => {
+// Fixed PlanModal component with proper TypeScript types
+interface PlanModalProps {
+  destination: Destination;
+  onClose: () => void;
+}
+
+const PlanModal: React.FC<PlanModalProps> = ({ destination, onClose }) => {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-md" onClick={onClose}></div>
