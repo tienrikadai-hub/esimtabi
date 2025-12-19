@@ -1,0 +1,7 @@
+{
+  "name": "eSim Tabi - Premium Travel eSIM Marketplace",
+  "description": "A professional, high-performance eSIM marketplace for international travelers. Features include smart destination search, interactive plan selection, and an AI travel assistant.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
