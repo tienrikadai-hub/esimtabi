@@ -1,10 +1,18 @@
 
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Hàm khởi tạo an toàn
+const getAIClient = () => {
+  const apiKey = process.env.API_KEY || "";
+  if (!apiKey) {
+    console.warn("API_KEY is not configured. AI features will be limited.");
+  }
+  return new GoogleGenAI({ apiKey });
+};
 
 export async function getTravelAdvice(prompt: string) {
   try {
+    const ai = getAIClient();
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
       contents: prompt,
